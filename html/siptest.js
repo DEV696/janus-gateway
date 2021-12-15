@@ -795,7 +795,7 @@ function registerUsername() {
 	} else if(selectedApproach === "ha1secret") {
 		var sip_user = username.substring(4, username.indexOf('@'));    /* skip sip: */
 		var sip_domain = username.substring(username.indexOf('@')+1);
-		register["ha1_secret"] = md5(sip_user+':'+sip_domain+':'+password);
+		register["ha1_secret"] = sha256(sip_user+':'+sip_domain+':'+password);
 	}
 	// Should you want the SIP stack to add some custom headers to the
 	// REGISTER, you can do so by adding an additional "headers" object,
